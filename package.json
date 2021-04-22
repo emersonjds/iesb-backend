@@ -1,0 +1,11 @@
+{
+  "name": "china-in-box-api",
+  "version": "1.0.0",
+  "description": "API Node Js ",
+  "main": "app.js",
+  "author": "Emerson Silva",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
