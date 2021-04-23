@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
+const port = process.env.PORT
 
-const port = 3000
-
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
+  let preco = 30;
+  let qtd = 5;
+  let total = preco * qtd;
+  console.log(`variavel ${total}`)
   res.send('Hello World')
 })
 
