@@ -8,8 +8,15 @@ var ProductSchema = new mongoose.Schema({
     index: true,
   },
   price: {
-    type: Float,
+    type: Number,
     required: true,
+  },
+  description: String,
+  img: String,
+  changeDescription: {
+    type: Boolean,
+    required: true,
+    default: true,
   },
 });
 
