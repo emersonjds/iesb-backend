@@ -32,6 +32,7 @@ productRouter.delete("/:productId", (req, res, next) => {
 
 productRouter.patch('/:productId', (req, res, next) => {
   const productId = req.params;
+  res.send('product updated with sucess')
 })
 
 module.exports = productRouter;
