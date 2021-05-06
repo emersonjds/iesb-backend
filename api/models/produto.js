@@ -15,7 +15,6 @@ var ProductSchema = new mongoose.Schema({
   img: String,
   changeDescription: {
     type: Boolean,
-    required: true,
     default: true,
   },
 });

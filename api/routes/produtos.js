@@ -1,24 +1,33 @@
 const express = require("express");
-import Produto from "../models/produto";
+const { collection } = require("../models/produto");
+const ProductSchema = require("../models/produto");
 
 const productRouter = express.Router();
 
-productRouter.get("/", (req, res, next) => {
-  res.send("rota de produto");
+productRouter.get("/", async (req, res, next) => {
+  const data = await ProductSchema.find();
+  console.log(data);
+
+  res.send(data);
 });
 
 productRouter.post("/", (req, res, next) => {
-  const produto = new Produto({
-    ...req.body,
+  const { name, price, product } = req.body;
+
+  const produto = new ProductSchema({
+    name,
+    price,
+    product,
   });
 
   produto
     .save()
     .then((data) => {
-      console.log("Produto cadastrado com sucesso", data);
+      console.log("produto salvo");
+      res.send({ message: "Produto cadastrado com sucesso", data });
     })
     .catch((err) => {
-      console.log("erro no cadastro do produto", err);
+      res.send({ message: err.message });
     });
 });
 
@@ -29,7 +38,5 @@ productRouter.delete("/:productId", (req, res, next) => {
     res.send("Produto deletado com sucesso");
   }
 });
-
-
 
 module.exports = productRouter;
